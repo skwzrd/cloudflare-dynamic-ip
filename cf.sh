@@ -16,6 +16,10 @@ RECORD_NAME=
 PUBLIC_IP=$(curl -s 'icanhazip.com')
 STORED_IP=$(cat cloudflare-dynamic-ip-last.txt)
 
+TIMESTAMP_TXT_PATH=
+
+echo "Last runtime: $(date +"%Y-%m-%d %H:%M:%S")" > "$TIMESTAMP_TXT_PATH"
+
 is_valid_ipv4() {
     local ip=$1
     if [[ $ip =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
